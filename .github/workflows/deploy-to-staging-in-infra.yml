@@ -1,0 +1,28 @@
+name: Deploy to Staging in Infrastructure Repo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Fetch Docker image and push to Staging in Infrastructure Repo
+        run: |
+          cp -r PipelineDemo.Calculations/*.Dockerfile ../demo-infrastructure/images/
+        working-directory: ./PipelineDemo
+
+      - name: Commit and Push Changes to Infra Repo
+        run: |
+          git config user.name "xbvarlik"
+          git config user.email "barisvarlik19@gmail.com"
+          git add .
+          git commit -m "Fetch Docker image and push to Staging in Infrastructure Repo"
+          git push origin staging
+        working-directory: ./demo-infrastructure
