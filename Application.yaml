@@ -18,10 +18,13 @@ spec:
       prune: true
     syncOptions:
       - CreateNamespace=true
-  postSync:
-    - name: upgrade
-      hookType: Sync
-      executeBatch: true
-      script: |
-        #!/bin/sh
-        helm upgrade --install my-release ./path/to/helm/chart
+        
+
+# CD Pipeline is implemented on the Azure, CI pipeline is waiting.
+# PostSync Hook in ArgoCD that runs helm upgrade command + imagePullPolicy: Always in helm chart
+# This provides every time a new image is pushed to the registry, helm will pull it and argocd will deploy it
+
+# General Ideas:
+# ArgoCD Container Registry'den triggerlanabilir mi?
+# Helm Chart Container Registry'den triggerlanabilir mi?  
+# Add something at the end of the workflow to make a request to the argo endpoint
