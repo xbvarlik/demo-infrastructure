@@ -6,7 +6,7 @@ metadata:
 spec:
   source:
     repoURL: https://github.com/xbvarlik/demo-infrastructure.git
-    path: /
+    path: helm
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
