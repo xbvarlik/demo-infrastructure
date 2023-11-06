@@ -1,0 +1,7 @@
+﻿database:
+  host: sqlserver.database.windows.net
+  username: myusername
+  password: mypassword
+image:
+  repository: myapp
+  tag: latest
