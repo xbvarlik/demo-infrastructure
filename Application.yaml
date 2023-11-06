@@ -1,0 +1,26 @@
+﻿apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+  namespace: my-namespace
+spec:
+  source:
+    repoURL: https://github.com/xbvarlik/demo-infrastructure.git
+    path: /
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: my-namespace
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      syncOptions:
+        - CreateNamespace=true
+  postSync:
+    - name: upgrade
+      hookType: Sync
+      executeBatch: true
+      script: |
+        #!/bin/sh
+        helm upgrade --install my-release ./path/to/helm/chart
