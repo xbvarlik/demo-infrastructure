@@ -1,8 +1,4 @@
-﻿database:
-  host: sqlserver.database.windows.net
-  username: myusername
-  password: mypassword
-image:
+﻿image:
   repository: barisvarlik.azurecr.io/pipeline-demo-calc
   tag: latest
   pullPolicy: Always
