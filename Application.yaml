@@ -12,7 +12,9 @@ metadata:
     # Image list is a list of images that should be updated
     argocd-image-updater.argoproj.io/image-list: img-alias=barisvarlik.azurecr.io/pipeline-demo-calc/pipeline-demo-calc:latest
     # Update strategy is the strategy that should be used to update the image
-    argocd-image-updater.argoproj.io/{{values.alias}}.update-strategy: latest
+    argocd-image-updater.argoproj.io/update-strategy: latest
+    # This is the secret that contains the credentials to access the container registry
+    argocd-image-updater.argoproj.io/pull-secret: pullsecret:argocd/argocd-gcr-secret  
 spec:
   source:
     # This is the repository that contains the helm chart

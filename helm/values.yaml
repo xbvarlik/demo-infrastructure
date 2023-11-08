@@ -5,4 +5,3 @@
 configs:
   cm:
     accounts.image-updater: apiKey
-
