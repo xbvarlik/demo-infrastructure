@@ -3,9 +3,21 @@ kind: Application
 metadata:
   name: my-app
   namespace: my-namespace
+  annotations:
+    # These annotations tell ArgoCD to use the image updater plugin
+    # write-back method to update the image list or tag in the Git repository
+    argocd-image-updater.argoproj.io/write-back-method: git
+    # Git branch is the branch that should be used to update the image
+    argocd-image-updater.argoproj.io/git-branch: main
+    # Image list is a list of images that should be updated
+    argocd-image-updater.argoproj.io/image-list: img-alias=barisvarlik.azurecr.io/pipeline-demo-calc/pipeline-demo-calc:latest
+    # Update strategy is the strategy that should be used to update the image
+    argocd-image-updater.argoproj.io/{{values.alias}}.update-strategy: latest
 spec:
   source:
+    # This is the repository that contains the helm chart
     repoURL: https://github.com/xbvarlik/demo-infrastructure.git
+    # This is the path to the helm chart, the name is arbitrary
     path: helm
     targetRevision: HEAD
   destination:
