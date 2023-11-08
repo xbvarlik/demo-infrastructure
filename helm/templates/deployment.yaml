@@ -17,7 +17,7 @@ items:
         spec:
           containers:
             - name: {{ .Chart.Name }}
-              image: {{ printf "%s/%s:%s" .Values.image.repository "pipeline-demo-calc" .Values.image.tag }}
+              image: {{ printf "%s/%s:%s" .Values.image.repository .Values.image.tag }}
               ports:
                 - containerPort: 80
   - apiVersion: v1

@@ -10,7 +10,7 @@ metadata:
     # Git branch is the branch that should be used to update the image
     argocd-image-updater.argoproj.io/git-branch: main
     # Image list is a list of images that should be updated
-    argocd-image-updater.argoproj.io/image-list: img-alias=barisvarlik.azurecr.io/pipeline-demo-calc/pipeline-demo-calc:latest
+    argocd-image-updater.argoproj.io/image-list: img-alias=barisvarlik.azurecr.io/pipeline-demo-calc
     # Update strategy is the strategy that should be used to update the image
     argocd-image-updater.argoproj.io/update-strategy: latest
     # This is the secret that contains the credentials to access the container registry
