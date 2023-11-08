@@ -2,7 +2,7 @@
 kind: Application
 metadata:
   name: my-app
-  namespace: dev
+  namespace: argocd
   annotations:
     # These annotations tell ArgoCD to use the image updater plugin
     # write-back method to update the image list or tag in the Git repository
