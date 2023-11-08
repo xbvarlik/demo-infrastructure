@@ -3,8 +3,10 @@
   username: myusername
   password: mypassword
 image:
-  repository: myapp
+  repository: barisvarlik.azurecr.io/pipeline-demo-calc
   tag: latest
   pullPolicy: Always
-  
+configs:
+  cm:
+    accounts.image-updater: apiKey
 
