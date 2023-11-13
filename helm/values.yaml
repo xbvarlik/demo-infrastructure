@@ -1,5 +1,5 @@
 ﻿image:
-  repository: barisvarlik.azurecr.io/pipeline-demo-calc
+  repository: pipeline-demo-calc
   tag: latest
   pullPolicy: Always
 configs:
